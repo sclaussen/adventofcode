@@ -17,7 +17,7 @@ function main(args) {
 
 
 function day1a() {
-    console.log('\nDay 1 Part 1');
+    console.log('\n2020 Day 1 Part 1');
 
     let data = fs.readFileSync('./input.day1', 'utf8')
     let lines = data.split(/\r?\n/);
@@ -42,7 +42,7 @@ function day1a() {
 
 
 function day1b() {
-    console.log('\nDay 1 Part 2');
+    console.log('\n2020 Day 1 Part 2');
     let data = fs.readFileSync('./input.day1', 'utf8')
     let lines = data.split(/\r?\n/);
 
