@@ -11,20 +11,25 @@ main(process.argv);
 
 
 function main(args) {
-    day1a();
-    day1b();
+    // day1a();
+    // day1b();
+    // day2a();
+    day2b();
 }
 
 
 function day1a() {
-    console.log('\n2020 Day 1 Part 1');
+    console.log('\n2020-1a');
 
-    let data = fs.readFileSync('./input.day1', 'utf8')
+    let data = fs.readFileSync('./2020-001', 'utf8')
     let lines = data.split(/\r?\n/);
 
     let indexedLines = {};
     let i = 0;
     for (let line of lines) {
+        if (line == '') {
+            continue;
+        }
         indexedLines[i] = parseInt(line);
         i++;
     }
@@ -42,13 +47,16 @@ function day1a() {
 
 
 function day1b() {
-    console.log('\n2020 Day 1 Part 2');
-    let data = fs.readFileSync('./input.day1', 'utf8')
+    console.log('\n2020-1b');
+    let data = fs.readFileSync('./2020-001', 'utf8')
     let lines = data.split(/\r?\n/);
 
     let indexedLines = {};
     let i = 0;
     for (let line of lines) {
+        if (line == '') {
+            continue;
+        }
         indexedLines[i] = parseInt(line);
         i++;
     }
@@ -68,4 +76,92 @@ function day1b() {
             }
         }
     }
+}
+
+
+
+function day2a() {
+    console.log('\n2020-01a');
+
+    let validPasswords = 0;
+
+    let data = fs.readFileSync('./2020-002', 'utf8')
+    let lines = data.split(/\r?\n/);
+
+    for (let line of lines) {
+        if (line == '') {
+            continue;
+        }
+
+        // This could be more optimized, but I opted for simplicity
+        // over speed
+        let min = parseInt(line.split(/-/)[0]);
+        let max = parseInt(line.split(/-/)[1].split(' ')[0]);
+        let letter = line.split(/ /)[1].split(':')[0];
+        let password = line.split(/ /)[2];
+
+        let chCount =  0;
+        for (let ch of password) {
+            if (ch === letter) {
+                chCount++;
+                if (chCount > max) {
+                    break;
+                }
+            }
+        }
+
+        if (chCount >= min && chCount <= max) {
+            validPasswords++;
+        }
+    }
+
+    console.log('Valid passwords: ' + validPasswords);
+}
+
+
+function day2b() {
+    console.log('\n2020-02b');
+
+    let validPasswords = 0;
+
+    let data = fs.readFileSync('./2020-002', 'utf8')
+    let lines = data.split(/\r?\n/);
+
+    for (let line of lines) {
+        if (line == '') {
+            continue;
+        }
+
+        // This could be more optimized, but I opted for simplicity
+        // over speed
+        let position1 = parseInt(line.split(/-/)[0]);
+        let position2 = parseInt(line.split(/-/)[1].split(' ')[0]);
+        let letter = line.split(/ /)[1].split(':')[0];
+        let password = line.split(/ /)[2];
+
+        let position = 1;
+        let occurrences = 0;
+        for (let ch of password) {
+            if (position === position1 && ch === letter) {
+                occurrences++;
+            }
+
+            if (position === position2 && ch === letter) {
+                occurrences++;
+                break;
+            }
+
+            if (position > position2) {
+                break;
+            }
+
+            position++;
+        }
+
+        if (occurrences === 1) {
+            validPasswords++;
+        }
+    }
+
+    console.log('Valid passwords: ' + validPasswords);
 }
