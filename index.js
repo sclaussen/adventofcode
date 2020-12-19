@@ -11,15 +11,15 @@ main(process.argv);
 
 
 function main(args) {
-    // day1a();
-    // day1b();
-    // day2a();
+    day1a();
+    day1b();
+    day2a();
     day2b();
 }
 
 
 function day1a() {
-    console.log('\n2020-1a');
+    console.log('\n2020-001a');
 
     let data = fs.readFileSync('./2020-001', 'utf8')
     let lines = data.split(/\r?\n/);
@@ -47,7 +47,7 @@ function day1a() {
 
 
 function day1b() {
-    console.log('\n2020-1b');
+    console.log('\n2020-001b');
     let data = fs.readFileSync('./2020-001', 'utf8')
     let lines = data.split(/\r?\n/);
 
@@ -81,7 +81,7 @@ function day1b() {
 
 
 function day2a() {
-    console.log('\n2020-01a');
+    console.log('\n2020-002a');
 
     let validPasswords = 0;
 
@@ -120,7 +120,7 @@ function day2a() {
 
 
 function day2b() {
-    console.log('\n2020-02b');
+    console.log('\n2020-002b');
 
     let validPasswords = 0;
 
