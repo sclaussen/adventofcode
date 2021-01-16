@@ -1,9 +1,11 @@
 'use strict'
 
 const fs = require('fs')
+const p = require('./util')
 
 
 main(process.argv);
+
 
 function main(args) {
     day1a(args);
@@ -12,8 +14,6 @@ function main(args) {
 
 
 function day1a(args) {
-    console.log('\n2019-001a');
-
     let totalFuel = 0;
     for (let line of fs.readFileSync('./input/2019-001.txt', 'utf8').split(/\r?\n/)) {
         if (line === '') {
@@ -23,14 +23,12 @@ function day1a(args) {
         totalFuel += Math.floor(parseInt(line) / 3) - 2;
     }
 
-    console.log(totalFuel);
+    p(totalFuel);
 }
 
 
 
 function day1b(args) {
-    console.log('\n2019-001b');
-
     let totalFuel = 0;
     for (let line of fs.readFileSync('./input/2019-001.txt', 'utf8').split(/\r?\n/)) {
         if (line === '') {
@@ -44,5 +42,5 @@ function day1b(args) {
         }
     }
 
-    console.log(totalFuel);
+    p(totalFuel);
 }
